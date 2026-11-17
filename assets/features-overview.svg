@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- CARD 1: Digital Vacuum -->
+  <rect x="20" y="15" width="300" height="220" rx="14" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+  <circle cx="56" cy="48" r="18" fill="#0284c7" opacity="0.25"/>
+  <text x="56" y="55" font-size="20" text-anchor="middle">📦</text>
+  <text x="88" y="54" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700">Digital Vacuum</text>
+  
+  <text fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="400">
+    <tspan x="45" y="92">Scrapes images, SVG icons, audio,</tspan>
+    <tspan x="45" y="114">and raw HLS video streams.</tspan>
+    <tspan x="45" y="136">Crawls up to 150 sitemap pages</tspan>
+    <tspan x="45" y="158">and builds an in-memory ZIP.</tspan>
+  </text>
+  
+  <rect x="45" y="178" width="250" height="32" rx="8" fill="#0369a1" opacity="0.25" stroke="#0284c7" stroke-width="1"/>
+  <text x="170" y="198" fill="#38bdf8" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.05em">⚡ 150-PAGE SITEMAP CRAWL</text>
+
+  <!-- CARD 2: Production Roaster -->
+  <rect x="340" y="15" width="300" height="220" rx="14" fill="url(#cardGrad)" stroke="#ef4444" stroke-width="1.5"/>
+  <circle cx="376" cy="48" r="18" fill="#b91c1c" opacity="0.25"/>
+  <text x="376" y="55" font-size="20" text-anchor="middle">🔥</text>
+  <text x="408" y="54" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700">Production Roaster</text>
+  
+  <text fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="400">
+    <tspan x="365" y="92">Hunts for exposed .env, .git,</tspan>
+    <tspan x="365" y="114">SQL dumps, and server backups.</tspan>
+    <tspan x="365" y="136">Detects unmasked API secrets,</tspan>
+    <tspan x="365" y="158">CORS flaws, and open buckets.</tspan>
+  </text>
+  
+  <rect x="365" y="178" width="250" height="32" rx="8" fill="#991b1b" opacity="0.25" stroke="#ef4444" stroke-width="1"/>
+  <text x="490" y="198" fill="#f87171" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.05em">🚨 READ-ONLY SAFE AUDIT</text>
+
+  <!-- CARD 3: Metadata Stalker -->
+  <rect x="660" y="15" width="300" height="220" rx="14" fill="url(#cardGrad)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <circle cx="696" cy="48" r="18" fill="#6d28d9" opacity="0.25"/>
+  <text x="696" y="55" font-size="20" text-anchor="middle">🕵️‍♂️</text>
+  <text x="728" y="54" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700">Metadata Stalker</text>
+  
+  <text fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="400">
+    <tspan x="685" y="92">Pulls hidden GPS coordinates</tspan>
+    <tspan x="685" y="114">from uploaded photo EXIF data.</tspan>
+    <tspan x="685" y="136">Extracts author &amp; company info</tspan>
+    <tspan x="685" y="158">from public PDF &amp; Office docs.</tspan>
+  </text>
+  
+  <rect x="685" y="178" width="250" height="32" rx="8" fill="#5b21b6" opacity="0.25" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="810" y="198" fill="#c084fc" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.05em">🛡️ EXIF &amp; METADATA PURGE</text>
+</svg>

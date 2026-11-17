@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Asset Grabber</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Asset Grabber</h1>
+    <div class="tabs" role="tablist">
+      <button id="tabFiles" class="tab active" role="tab">Files</button>
+      <button id="tabDev" class="tab" role="tab">Developer</button>
+    </div>
+    <button id="popout" class="ghost" title="Open in a full tab so long scans and big downloads keep running">Open in tab</button>
+  </header>
+
+  <section class="scan">
+    <div class="urlrow">
+      <input id="url" type="text" spellcheck="false" autocomplete="off" placeholder="Paste a page link, e.g. https://example.com or http://localhost:3000">
+      <button id="scan" class="primary">Scan</button>
+    </div>
+    <div class="opts">
+      <label class="check" title="Opens the page in a small window, runs its JavaScript and scrolls it"><input id="deep" type="checkbox"> Deep scan</label>
+      <label class="check" title="Follows links on the same site, plus sitemap.xml"><input id="crawl" type="checkbox"> Crawl site, up to <input id="pages" type="number" min="2" max="150" value="25"> pages</label>
+      <label class="check" title="Page requests carry your browser cookies. File access tests always run logged out."><input id="creds" type="checkbox"> Use my login</label>
+      <button id="scanTab" class="link">Scan the tab I'm on</button>
+    </div>
+  </section>
+
+  <div class="statusrow">
+    <div id="status" class="status" role="status">Paste a link and press Scan.</div>
+    <button id="cancel" class="ghost" hidden>Cancel</button>
+  </div>
+  <div id="bar" class="progress" hidden><i></i></div>
+
+  <!-- ============ 1. FILES ============ -->
+  <section id="panelFiles">
+    <nav id="chips" class="tiles" aria-label="File categories"></nav>
+    <div class="tools">
+      <label class="check"><input id="all" type="checkbox"> All shown</label>
+      <input id="q" type="search" placeholder="Filter by name or link">
+      <select id="access" title="Result of an anonymous (logged-out) request for each file">
+        <option value="any">Any access</option>
+        <option value="public">Public</option>
+        <option value="blocked">Blocked</option>
+      </select>
+      <select id="sort" title="Sort order">
+        <option value="found">Page order</option>
+        <option value="name">Name</option>
+        <option value="type">Type</option>
+        <option value="size">Largest first</option>
+      </select>
+      <label class="check"><input id="tiny" type="checkbox"> Hide &lt; 2 KB</label>
+    </div>
+    <main id="list" class="list" aria-live="polite"></main>
+    <footer class="bar">
+      <span id="count" class="count">0 selected</span>
+      <span class="spacer"></span>
+      <button id="copy" class="ghost" disabled>Copy links</button>
+      <button id="csv" class="ghost" disabled>Export CSV</button>
+      <button id="dlSel" class="solid" disabled>Download selected</button>
+      <button id="dlZip" class="primary" disabled>Download as ZIP</button>
+    </footer>
+  </section>
+
+  <!-- ============ 2. DEVELOPER ============ -->
+  <section id="panelDev" hidden>
+    <p class="note">For sites you own or may test: localhost, staging, or production before launch. Everything here is a read-only GET request. Nothing is logged in to, written, or changed, and file and path tests are always sent logged out. Revealed secrets are shown on this screen only.</p>
+
+    <div class="devrun">
+      <button id="runAudit" class="primary big">Find all vulnerabilities and secrets</button>
+      <button id="reveal" class="ghost danger" disabled aria-pressed="false">Reveal secret values</button>
+    </div>
+
+    <details class="checks">
+      <summary>Choose which checks to run</summary>
+      <div class="secopts">
+        <label class="check"><input type="checkbox" id="oPaths" checked> Exposed files and folders (.env, .git, backups, listings, logs)</label>
+        <label class="check"><input type="checkbox" id="oHeaders" checked> Security headers, cookies and page content</label>
+        <label class="check"><input type="checkbox" id="oSecrets" checked> Secrets and source maps in scripts</label>
+        <label class="check"><input type="checkbox" id="oCloud" checked> API endpoints, Supabase, Firebase and bucket exposure</label>
+        <label class="check"><input type="checkbox" id="oFiles" checked> Inspect files (GPS, author data, macros, wrong types)</label>
+      </div>
+    </details>
+
+    <nav id="devtabs" class="subtabs" role="tablist">
+      <button class="subtab active" data-view="findings">Findings</button>
+      <button class="subtab" data-view="secrets">Secrets</button>
+      <button class="subtab" data-view="endpoints">Endpoints &amp; scripts</button>
+      <button class="subtab" data-view="details">Page details</button>
+    </nav>
+    <nav id="sevchips" class="chips" aria-label="Severity" hidden></nav>
+    <main id="devView" class="list findlist" aria-live="polite"></main>
+
+    <div class="secrun">
+      <span id="devcount" class="count"></span>
+      <span class="spacer"></span>
+      <button id="expMd" class="ghost" disabled>Report (.md)</button>
+      <button id="expJson" class="ghost" disabled>Report (.json)</button>
+    </div>
+  </section>
+
+  <script src="util.js"></script>
+  <script src="scanner.js"></script>
+  <script src="zip.js"></script>
+  <script src="inspect.js"></script>
+  <script src="crawl.js"></script>
+  <script src="stream.js"></script>
+  <script src="audit.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

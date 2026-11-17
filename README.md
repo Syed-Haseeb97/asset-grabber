@@ -30,7 +30,7 @@ Ever visited a website and thought:
 ---
 
 <p align="center">
-  <img src="assets/feature-matrix.svg" alt="Feature Overview" width="100%" />
+  <img src="assets/feature-matrix.svg?v=2" alt="Feature Overview" width="100%" />
 </p>
 
 ---
